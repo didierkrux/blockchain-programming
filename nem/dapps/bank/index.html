@@ -1,0 +1,68 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <div class="jumbotron text-center">
+        <h1>Bank</h1>
+    </div>
+
+    <div id="loginWrapper" style="width: 850px;margin: auto;border: 1px solid #444;padding: 20px;overflow: auto;">
+        <div class="col-md-6">
+            <div class="form-group">
+                <fieldset>
+                    <label>Address</label>
+                    <input class="form-control" type="text" id="address" value="TANMDRFT2UXMOTL7KWNNUY3S7UJPTIDUZJTDAY3O" />
+                </fieldset>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <fieldset>
+                    <button class="btn btn-success" style="width:100%;" id="login">Login</button>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+    <div id="dashboard"
+        style="display: none; width: 850px;margin: auto;border: 1px solid #444;padding: 20px;overflow: auto;">
+        <div class="col-md-6">
+            <div class="form-group">
+                <fieldset>
+                    <label>Balance</label>
+                    <div id="balance">1</div>
+                    <div>
+                        <button class="btn btn-default" style="width:100%;" id="refresh_balance">Refresh
+                            Balance</button>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="form-group">
+                <fieldset>
+                    <label>Deposit</label>
+                    <div>Deposit to address <span id="bankAddress"></span></div>
+                </fieldset>
+            </div>
+            <div class="form-group">
+                <fieldset>
+                    <label>Withdraw</label>
+                    <input class="form-control" type="text" id="withdrawAmount" />
+                    <button class="btn btn-default" style="width:100%;" id="withdraw">Withdraw</button>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"
+    integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/nem-sdk@1.6.7/dist/nem-sdk.js"></script>
+<script src="main.js"></script>
+
+</html>
