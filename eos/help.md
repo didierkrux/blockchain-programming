@@ -24,7 +24,7 @@ docker logs --tail 10 eosio
 docker exec -it eosio bash
 ```
 
-## Check wallet 2
+## Check wallet inside container
 
 ```sh
 cleos --wallet-url http://127.0.0.1:5555 wallet list keys
@@ -42,7 +42,7 @@ curl http://localhost:7777/v1/chain/get_info
 alias cleos='docker exec -it eosio /opt/eosio/bin/cleos --url http://127.0.0.1:7777 --wallet-url http://127.0.0.1:5555'
 ```
 
-# Run
+# Run Docker
 
 ## Start docker
 
@@ -54,12 +54,6 @@ docker start eosio
 
 ```sh
 docker stop eosio
-```
-
-## list keys
-
-```sh
-cleos wallet list keys
 ```
 
 # Install build tools
@@ -87,10 +81,17 @@ cleos wallet list
 cleos wallet unlock
 cleos wallet keys
 cleos wallet create_key
+```
+
+## wallet import
+
+```sh
 cleos wallet import
 ```
 
 PK: 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+
+## create account
 
 ```sh
 cleos create account eosio dj EOS7rpxCrmcQG3MSjZSchckrG8brpQq3rGLiCXmwd7c77ULYSmxUk
