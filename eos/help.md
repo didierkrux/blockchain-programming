@@ -61,6 +61,8 @@ docker stop eosio
 ```sh
 brew tap eosio/eosio.cdt
 brew install eosio.cdt
+# or install eosio/eosio.cdt v1.3.0
+brew install https://raw.githubusercontent.com/EOSIO/homebrew-eosio.cdt/37e2912e6ec4d5c9b035a94c3af12f9e1f30927f/eosio.cdt.rb
 ```
 
 # Wallet
@@ -95,4 +97,5 @@ PK: 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
 
 ```sh
 cleos create account eosio dj EOS7rpxCrmcQG3MSjZSchckrG8brpQq3rGLiCXmwd7c77ULYSmxUk
+cleos create account eosio hello EOS7rpxCrmcQG3MSjZSchckrG8brpQq3rGLiCXmwd7c77ULYSmxUk
 ```
