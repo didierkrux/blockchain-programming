@@ -62,7 +62,7 @@ docker stop eosio
 brew tap eosio/eosio.cdt
 brew install eosio.cdt
 # or install eosio/eosio.cdt v1.3.0
-brew install https://raw.githubusercontent.com/EOSIO/homebrew-eosio.cdt/37e2912e6ec4d5c9b035a94c3af12f9e1f30927f/eosio.cdt.rb
+# brew install https://raw.githubusercontent.com/EOSIO/homebrew-eosio.cdt/37e2912e6ec4d5c9b035a94c3af12f9e1f30927f/eosio.cdt.rb
 ```
 
 # Wallet
