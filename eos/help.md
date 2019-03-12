@@ -99,3 +99,27 @@ PK: 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
 cleos create account eosio dj EOS7rpxCrmcQG3MSjZSchckrG8brpQq3rGLiCXmwd7c77ULYSmxUk
 cleos create account eosio hello EOS7rpxCrmcQG3MSjZSchckrG8brpQq3rGLiCXmwd7c77ULYSmxUk
 ```
+
+## testnet
+
+https://monitor.jungletestnet.io/
+
+```sh
+cleos create key --to-console
+didierkrux11
+EOS7rcn1PaQAdNaa7vL5cSK4BbWu5bqvFWuuQush7t9cbu8xX1mym
+alias cleos='docker exec -it eosio /opt/eosio/bin/cleos --url https://jungle.eosio.cr:443 --wallet-url http://127.0.0.1:5555'
+cleos get account didierkrux11
+```
+
+## mainnet
+
+https://eosauthority.com/
+
+```sh
+alias cleos='docker exec -it eosio /opt/eosio/bin/cleos --url https://api.eosnewyork.io:443 --wallet-url http://127.0.0.1:5555'
+```
+
+## scatter
+
+https://get-scatter.com/
