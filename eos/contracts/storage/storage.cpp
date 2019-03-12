@@ -1,53 +1,51 @@
 #include <eosiolib/eosio.hpp>
-#include <eosiolib/print.hpp>
 
 using namespace eosio;
-using std::string;
 
-class advstorage : public contract
+class storage : public contract
 {
   public:
     // using contract::contract;
 
-    advstorage(eosio::name receiver, eosio::name code, eosio::datastream<const char *> ds) : eosio::contract(receiver, code, ds), _users(receiver, code.value){}
+    storage(name receiver, name code, datastream<const char *> ds) : contract(receiver, code, ds), _users(receiver, code.value){}
 
-    [[eosio::action]] void hi(name user, string full_name)
+    [[eosio::action]] void add(name user, std::string full_name)
     {
         require_auth(user);
         print("Hello, ", name{user});
         addName(user, full_name);
     }
 
-    [[eosio::action]] void forget(name user) {
+    [[eosio::action]] void remove(name user) {
         require_auth(user);
         removeName(user);
     }
 
     struct [[eosio::table]] user {
         uint64_t key;
-        name name;
-        string full_name;
+        name userName;
+        std::string userFullname;
         uint64_t lastUpdate;
         uint64_t primary_key() const { return key; }
     };
 
     // Configuration
-    typedef eosio::multi_index<"user"_n, user> userstable;
+    typedef multi_index<"user"_n, user> userstable;
 
     userstable _users;
 
-    void addName(name user, string full_name)
+    void addName(name user, std::string full_name)
     {
         bool found = false;
         for (auto &item : _users)
         {
-            if (item.name == user)
+            if (item.userName == user)
             {
                 found = true;
-                eosio::print("modifying user");
+                print("modifying user");
                 _users.modify(item, user, [&](auto &row) {
-                    row.name = user;
-                    row.full_name = full_name;
+                    row.userName = user;
+                    row.userFullname = full_name;
                     row.lastUpdate = now();
                 });
                 break;
@@ -55,11 +53,11 @@ class advstorage : public contract
         }
         if (!found)
         {
-            eosio::print("adding user");
+            print("adding user");
             _users.emplace(user, [&](auto &row) {
                 row.key = _users.available_primary_key();
-                row.name = user;
-                row.full_name = full_name;
+                row.userName = user;
+                row.userFullname = full_name;
                 row.lastUpdate = now();
             });
         }
@@ -71,17 +69,17 @@ class advstorage : public contract
         for (auto &item : _users)
         {
             found = true;
-            if (item.name == user)
+            if (item.userName == user)
             {
-                eosio::print("deleting user");
+                print("deleting user");
                 _users.erase(item);
                 break;
             }
         }
         if (!found)
         {
-            eosio::print("User does not exist");
+            print("User does not exist");
         }
     }
 };
-EOSIO_DISPATCH(advstorage, (hi)(forget))
+EOSIO_DISPATCH(storage, (add)(remove))

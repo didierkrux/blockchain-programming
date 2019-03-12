@@ -1,19 +1,9 @@
 {
-    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT Mon Mar 11 23:24:38 2019",
+    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT Tue Mar 12 21:03:47 2019",
     "version": "eosio::abi/1.1",
     "structs": [
         {
-            "name": "forget",
-            "base": "",
-            "fields": [
-                {
-                    "name": "user",
-                    "type": "name"
-                }
-            ]
-        },
-        {
-            "name": "hi",
+            "name": "add",
             "base": "",
             "fields": [
                 {
@@ -25,18 +15,28 @@
                     "type": "string"
                 }
             ]
+        },
+        {
+            "name": "remove",
+            "base": "",
+            "fields": [
+                {
+                    "name": "user",
+                    "type": "name"
+                }
+            ]
         }
     ],
     "types": [],
     "actions": [
         {
-            "name": "forget",
-            "type": "forget",
+            "name": "add",
+            "type": "add",
             "ricardian_contract": ""
         },
         {
-            "name": "hi",
-            "type": "hi",
+            "name": "remove",
+            "type": "remove",
             "ricardian_contract": ""
         }
     ],
